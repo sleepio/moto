@@ -709,7 +709,6 @@ def test_ami_filter_wildcard():
     instance.create_image(Name='not-matching-image')
 
     my_images = ec2_client.describe_images(
-        Owners=['111122223333'],
         Filters=[{'Name': 'name', 'Values': ['test*']}]
     )['Images']
     my_images.should.have.length_of(1)
